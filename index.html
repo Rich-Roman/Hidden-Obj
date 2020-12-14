@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <script src="https://aframe.io/releases/1.0.2/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+    <script src="./script.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
+    <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+  </head>
+
+  <body>
+
+    <a-scene > 
+      <!-- >---------------- Enviroment -----------------------------------------------</-->
+      
+      <a-gltf-model
+        id="space"
+        src="https://cdn.glitch.com/01efde5f-7efd-4bf0-9d92-b90aee287693%2Fspace.glb?v=1582224042107"
+        gltf-model="https://cdn.glitch.com/01efde5f-7efd-4bf0-9d92-b90aee287693%2Fspace.glb?v=1582224042107"
+        scale=".4 .4 .4"
+      ></a-gltf-model>
+      
+      <a-entity gltf-model="#space" scale=".4 .4 .4" animation-mixer></a-entity>
+      
+
+      <a-sky color="#000324"></a-sky>
+      
+      <a-entity
+        id="navMesh"
+        src="https://cdn.glitch.com/01efde5f-7efd-4bf0-9d92-b90aee287693%2FspaceNav.glb?v=1583385085496"
+        gltf-model="https://cdn.glitch.com/01efde5f-7efd-4bf0-9d92-b90aee287693%2FspaceNav.glb?v=1583385085496"
+        position="0 0 0"
+        visible="false"
+        scale=".4 .4 .4"
+        nav-mesh
+      ></a-entity>
+
+      <a-text
+        id="time"
+        value="0:00"
+        text="color: white"
+        position="-1.727 7.159 5.692"
+        scale="8 8 8"
+        timer
+      ></a-text>
+      
+      <a-text
+        id="time2"
+        value="0:00"
+        text="color: white"
+        position="6.478 7.989 0.990"
+        scale="8 8 8"
+        rotation = "0 90 0"
+        timer
+      ></a-text>
+      
+      <a-text
+        id="time3"
+        value="0:00"
+        text="color: white"
+        position="1.305 7.942 -5.228"
+        scale=" 8 8 8 "
+        rotation = "0 180 0"
+        timer
+      ></a-text>
+      
+      <a-text
+        id="time4"
+        value="0:00"
+        text="color: white"
+        position="-6.575 7.812 -1.106"
+        scale="8 8 8"
+        rotation = "0 -90 0"
+        timer
+      ></a-text>
+      
+      <a-text
+        id="boySays"
+        value="Go find my toy ufo or we're not leaving."
+        text="color: white"
+        position="6.034 1.731 30.117"
+        scale="2.5 2.5 2.5"
+        rotation = "0 180 0"
+        timer
+      ></a-text>
+      
+      <a-gltf-model
+        class="cube"
+        id="boy"
+        src="https://cdn.glitch.com/01efde5f-7efd-4bf0-9d92-b90aee287693%2Fboy.glb?v=1583393733401"
+        gltf-model="https://cdn.glitch.com/01efde5f-7efd-4bf0-9d92-b90aee287693%2Fboy.glb?v=1583393733401"
+        scale=".04 .04 .04"
+        rotation =" 0 180 0"
+        position ="6.959 0 30.301"
+        mixin="interactable"
+      ></a-gltf-model>
+      
+    <a-gltf-model
+        class="cube"
+        id="ufo"
+        src="https://cdn.glitch.com/01efde5f-7efd-4bf0-9d92-b90aee287693%2Fufo.glb?v=1583393733977"
+        gltf-model="https://cdn.glitch.com/01efde5f-7efd-4bf0-9d92-b90aee287693%2Fufo.glb?v=1583393733977"
+        scale=".4 .4 .4"
+        position=" -17.422 0.210 -6.671"
+        rotation="6.711 -16.147 -156.65"
+        mixin="interactable"
+    ></a-gltf-model>
+
+    <a-gltf-model
+ 
+        id="midform"
+        src="https://cdn.glitch.com/01efde5f-7efd-4bf0-9d92-b90aee287693%2Fmidform.glb?v=1583393921566"
+        gltf-model="https://cdn.glitch.com/01efde5f-7efd-4bf0-9d92-b90aee287693%2Fmidform.glb?v=1583393921566"
+        scale=".01 .01 .01"
+        position=" -15.638 0 -3.814"
+
+    ></a-gltf-model>
+      
+    <a-gltf-model
+
+        id="rover"
+        src="https://cdn.glitch.com/01efde5f-7efd-4bf0-9d92-b90aee287693%2Frover.glb?v=1583393956274"
+        gltf-model="https://cdn.glitch.com/01efde5f-7efd-4bf0-9d92-b90aee287693%2Frover.glb?v=1583393956274"
+        scale="3.0 3.0 3.0"
+        position=" 0.173 0 -24.412"
+        rotation="0 180 0"
+  
+    ></a-gltf-model>
+      
+    <a-gltf-model
+        class="cube"
+        id="beetle"
+        src="https://cdn.glitch.com/01efde5f-7efd-4bf0-9d92-b90aee287693%2Fbeetle.glb?v=1583393850066"
+        gltf-model="https://cdn.glitch.com/01efde5f-7efd-4bf0-9d92-b90aee287693%2Fbeetle.glb?v=1583393850066"
+        scale=".1 .1 .1"
+        rotation =" 0 180 0"
+        position=" 15.583 0.7 -5.152"
+        mixin="interactable"
+    ></a-gltf-model>
+      
+      <a-mixin
+        id="interactable"
+        geometry="primitive: box; width: 0.5; height: 0.5; depth: 0.5"
+        hoverable
+        grabbable
+        stretchable
+        draggable
+        droppable
+        shadow
+        event-set__dragdrop="_event: drag-drop; geometry.radius: 0.25; geometry.primitive: sphere"
+        event-set__hoveron="_event: hover-start; material.opacity: 0.7; transparent: true"
+        event-set__hoveroff="_event: hover-end; material.opacity: 1; transparent: false"
+        event-set__dragon="_event: dragover-start; material.wireframe: true"
+        event-set__dragoff="_event: dragover-end; material.wireframe: false"
+      >
+      </a-mixin>
+
+      <!-- >---------------- Player and controls -----------------------------------------------</-->
+
+      <a-entity
+        id="rig"
+        position="0 0 15"
+        movement-controls="constrainToNavMesh: true"
+      >
+        <a-entity id="head" camera look-controls position="0 1.6 0"></a-entity>
+
+        <a-entity
+          teleport-controls="cameraRig: #rig; button: trigger; curveShootingSpeed: 10; collision-entities: #navMesh "
+          vive-controls="hand: left"
+          oculus-touch-controls="hand: left"
+          microsoft-motion-controls="hand: left"
+          daydream-controls="left"
+          gearvr-controls="left"
+          hand-controls="left"
+        >
+        </a-entity>
+
+        <a-entity
+          id="right"
+          sphere-collider="objects: .cube"
+          super-hands
+          hand-controls="right"
+        ></a-entity>
+      </a-entity>
+
+      <!-- >---------------- Hidden Objects -----------------------------------------------</-->
+
+      <a-gltf-model
+        id="atv"
+        class="cube"
+        src="https://cdn.glitch.com/01efde5f-7efd-4bf0-9d92-b90aee287693%2Fatv.glb?v=1582824278677"
+        gltf-model="https://cdn.glitch.com/01efde5f-7efd-4bf0-9d92-b90aee287693%2Fatv.glb?v=1582824278677"
+        scale="0.01 0.01 0.01"
+        position="-16.607 0.238 -6.101"
+        rotation="0 90 0"
+        mixin="interactable"
+      ></a-gltf-model>
+      
+      <a-gltf-model
+        id="atv2"
+        class="cube"
+        src="https://cdn.glitch.com/01efde5f-7efd-4bf0-9d92-b90aee287693%2Fatv.glb?v=1582824278677"
+        gltf-model="https://cdn.glitch.com/01efde5f-7efd-4bf0-9d92-b90aee287693%2Fatv.glb?v=1582824278677"
+        scale="0.01 0.01 0.01"
+        position="-12.607 0.238 -10.101"
+        rotation="0 90 0"
+        mixin="interactable"
+      ></a-gltf-model>
+      
+          <a-gltf-model
+        class="cube"
+        id="beetle2"
+        src="https://cdn.glitch.com/01efde5f-7efd-4bf0-9d92-b90aee287693%2Fbeetle.glb?v=1583393850066"
+        gltf-model="https://cdn.glitch.com/01efde5f-7efd-4bf0-9d92-b90aee287693%2Fbeetle.glb?v=1583393850066"
+        scale=".1 .1 .1"
+        rotation =" 0 180 0"
+        position=" 17.889 0.801 4.00"
+        mixin="interactable"
+    ></a-gltf-model>
+      
+          <a-gltf-model
+ 
+        id="midform2"
+        src="https://cdn.glitch.com/01efde5f-7efd-4bf0-9d92-b90aee287693%2Fmidform.glb?v=1583393921566"
+        gltf-model="https://cdn.glitch.com/01efde5f-7efd-4bf0-9d92-b90aee287693%2Fmidform.glb?v=1583393921566"
+        scale=".01 .01 .01"
+        position=" 20.638 0 -9.814"
+
+    ></a-gltf-model>
+    </a-scene>
+  </body>
+</html>
